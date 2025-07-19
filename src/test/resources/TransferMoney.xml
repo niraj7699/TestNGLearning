@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Transfer Money Test Suite">
+    <test  name="Transfer Money">
+        <classes>
+            <class name="com.testng.test.SignInTest">
+                <methods>
+                    <include name="loginTest"/>
+                </methods>
+            </class>
+            <class name="com.testng.test.TransferMoneyTest">
+                <methods>
+                    <include name="transferMoney"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

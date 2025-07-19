@@ -23,6 +23,9 @@ public class BankingDashboard extends Base {
     @FindBy(xpath = "//nav//ul/li/div/span[text()='Accounts']")
     WebElement accountOption;
 
+    @FindBy(xpath = "//nav//ul/li/div/span[text()='Transfer']")
+    WebElement transferOption;
+
 
 
     public BankingDashboard(WebDriver driver) {
@@ -50,6 +53,11 @@ public class BankingDashboard extends Base {
     public Accounts clickOnAccountOption(){
         Base.click(accountOption);
         return new Accounts(driver);
+    }
+
+    public Transfer clickOnTransferOption(){
+        Base.click(transferOption);
+        return new Transfer(driver);
     }
 
 }
