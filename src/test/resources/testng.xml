@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test  name="Login Test">
+<!--    <test  name="Login Test">-->
+<!--        <classes>-->
+<!--            <class name="com.testng.test.SignInTest">-->
+<!--            <methods>-->
+<!--                <include name="loginTest"/>-->
+<!--                <include name="verifyLogin"/>-->
+<!--            </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+    <test  name="Create Account">
         <classes>
             <class name="com.testng.test.SignInTest">
-            <methods>
-                <include name="loginTest"/>
-                <include name="verifyLogin"/>
-            </methods>
+                <methods>
+                    <include name="loginTest"/>
+                </methods>
+            </class>
+            <class name="com.testng.test.CreateAccountTest">
+                <methods>
+                    <include name="createNewAccount"/>
+                </methods>
             </class>
         </classes>
     </test>

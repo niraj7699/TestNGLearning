@@ -10,7 +10,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +47,7 @@ public class Base {
     }
 
 
-    @BeforeClass
+    @BeforeTest
     public void setUp(){
         ConfigReader.loadProperties();
         WebDriverManager.chromedriver().setup();
@@ -57,7 +59,7 @@ public class Base {
 
     }
 
-    @AfterClass
+    @AfterTest
     public void tearDown(){
         driver.quit();
     }

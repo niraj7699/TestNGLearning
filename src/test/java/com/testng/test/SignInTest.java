@@ -21,7 +21,7 @@ public class SignInTest extends Base {
 
          WebElement profile=Base.waitForElementVisible(driver,bankingDashboard.loginToastMessageLocator(),2);
          Assert.assertTrue(Base.isDisplayed(profile));
-
+         Thread.sleep(3000);
      }
 
      @Test
