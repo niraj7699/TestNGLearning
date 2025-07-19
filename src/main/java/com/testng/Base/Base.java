@@ -25,23 +25,25 @@ import java.util.Set;
 
 
 public class Base {
-    protected  WebDriver driver;
+    protected static WebDriver driver;
 
     public void launchBrowser(){
-        ConfigReader.loadProperties();
-        String browser=ConfigReader.getProperty("browser");
-        switch (browser.toLowerCase()){
-            case "chrome":
-                driver=new ChromeDriver();
-                break;
-            case "firefox":
-                driver=new FirefoxDriver();
-                break;
-            case "edge":
-                driver=new EdgeDriver();
-                break;
-            default:
-                throw new RuntimeException("Browser is not Supported: "+browser);
+        if (driver == null) {
+            ConfigReader.loadProperties();
+            String browser = ConfigReader.getProperty("browser");
+            switch (browser.toLowerCase()) {
+                case "chrome":
+                    driver = new ChromeDriver();
+                    break;
+                case "firefox":
+                    driver = new FirefoxDriver();
+                    break;
+                case "edge":
+                    driver = new EdgeDriver();
+                    break;
+                default:
+                    throw new RuntimeException("Browser is not Supported: " + browser);
+            }
         }
 
     }

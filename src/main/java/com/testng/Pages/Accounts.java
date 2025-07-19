@@ -41,8 +41,8 @@ public class Accounts extends Base {
     @FindBy(xpath="//button[text()='Create']")
     WebElement createButton;
 
-    public void createNewAccount(String accountTypeOption,String branchTypeOption){
-        Base.click(createButton);
+    public void createNewAccount(String accountTypeOption,String branchTypeOption) throws InterruptedException {
+        Base.click(createAccount);
         Base.click(accountType);
         if(accountTypeOption.equals("Savings Account")){
             Base.click(salaryAccountOption);
@@ -59,6 +59,7 @@ public class Accounts extends Base {
         }
 
         Base.click(createButton);
+        Thread.sleep(3000);
     }
 
 }

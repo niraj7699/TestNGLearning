@@ -9,9 +9,10 @@ public class CreateAccountTest extends Base {
     BankingDashboard bankingDashboard;
     Accounts accounts;
     @Test
-    public void createNewAccount(){
+    public void createNewAccount() throws InterruptedException {
         bankingDashboard=new BankingDashboard(driver);
         accounts=bankingDashboard.clickOnAccountOption();
+        Thread.sleep(3000);
         accounts.createNewAccount("Savings Account","Main Branch");
     }
 }

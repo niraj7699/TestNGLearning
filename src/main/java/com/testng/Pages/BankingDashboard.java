@@ -20,6 +20,11 @@ public class BankingDashboard extends Base {
     @FindBy(xpath = "//li[text()='Logout']")
     WebElement logoutOption;
 
+    @FindBy(xpath = "//nav//ul/li/div/span[text()='Accounts']")
+    WebElement accountOption;
+
+
+
     public BankingDashboard(WebDriver driver) {
         PageFactory.initElements(driver,this);
     }
@@ -40,6 +45,11 @@ public class BankingDashboard extends Base {
     public SignInPage clickOnLogout(){
         Base.click(logoutOption);
         return new SignInPage(driver);
+    }
+
+    public Accounts clickOnAccountOption(){
+        Base.click(accountOption);
+        return new Accounts(driver);
     }
 
 }
