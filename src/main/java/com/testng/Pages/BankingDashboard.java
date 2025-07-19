@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends Base {
+public class BankingDashboard extends Base {
     @FindBy(xpath = "//div[text()='Login successful!']")
     WebElement loginToastMessage;
 
@@ -20,7 +20,7 @@ public class HomePage extends Base {
     @FindBy(xpath = "//li[text()='Logout']")
     WebElement logoutOption;
 
-    public HomePage(WebDriver driver) {
+    public BankingDashboard(WebDriver driver) {
         PageFactory.initElements(driver,this);
     }
 

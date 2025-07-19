@@ -33,9 +33,9 @@ public class SignInPage extends Base {
        Base.enterText(password,passwordWebElement);
    }
 
-   public HomePage clickOnSignInButton(){
+   public BankingDashboard clickOnSignInButton(){
         Base.click(signInButton);
-        return new HomePage(driver);
+        return new BankingDashboard(driver);
    }
 
     public SignUpPage clickOnSignUpLink(){
@@ -48,11 +48,11 @@ public class SignInPage extends Base {
         return new ForgotPasswordPage(driver);
     }
 
-    public HomePage login(){
+    public BankingDashboard login(){
         enterUsername();
         enterPassword();
         clickOnSignInButton();
-        return new HomePage(driver);
+        return new BankingDashboard(driver);
     }
 
 }
