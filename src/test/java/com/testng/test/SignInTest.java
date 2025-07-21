@@ -16,6 +16,7 @@ public class SignInTest extends Base {
 
      @Test
      public void loginTest() throws InterruptedException {
+         extentReports.createTest("Login to Banking browser");
          signIn=new SignInPage(driver);
          bankingDashboard=signIn.login();
 
@@ -26,6 +27,7 @@ public class SignInTest extends Base {
 
      @Test
     public void verifyLogin() throws InterruptedException {
+         extentReports.createTest("Verify login Details");
          bankingDashboard=new BankingDashboard(driver);
         if(Base.waitForInvisibilityOfElement(driver,bankingDashboard.loginToastMessageLocator(),7)){
             bankingDashboard.clickOnProfileLogo();
@@ -38,8 +40,9 @@ public class SignInTest extends Base {
 
         profilePage=new ProfilePage(driver);
         String profileName= profilePage.getProfileName();
-        Assert.assertEquals(profileName,"Niraj Kumar");
+        Assert.assertEquals(profileName,"Nira Kumar");
         Thread.sleep(2000);
+        extentReports.flush();
      }
 
 }

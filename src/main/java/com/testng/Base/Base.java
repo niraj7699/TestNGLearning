@@ -1,5 +1,7 @@
 package com.testng.Base;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.testng.utils.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
@@ -26,7 +28,7 @@ import java.util.Set;
 
 public class Base {
     protected static WebDriver driver;
-
+    public static ExtentReports extentReports;
     public void launchBrowser(){
         if (driver == null) {
             ConfigReader.loadProperties();
@@ -58,6 +60,7 @@ public class Base {
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.get(baseURL);
+
 
     }
 
@@ -288,22 +291,23 @@ public class Base {
         driver.switchTo().defaultContent();
     }
 
-    public static void takeScreenshot(WebDriver driver, String filePath) {
+    public static String takeScreenshot(String testCaseName) {
         try {
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            File dest = new File(filePath);
+            File dest = new File(System.getProperty("user.dir")+"\\screenshots\\"+testCaseName+".png");
             FileUtils.copyFile(src, dest);
-            System.out.println("Screenshot saved at: " + filePath);
+
         } catch (IOException e) {
             System.out.println("Failed to capture screenshot: " + e.getMessage());
         }
+        return System.getProperty("user.dir")+"\\screenshots\\"+testCaseName+".png";
     }
 
-    public static void takeScreenshotWithTimestamp(WebDriver driver, String folderPath, String fileNamePrefix) {
-        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String fullPath = folderPath + File.separator + fileNamePrefix + "_" + timestamp + ".png";
-        takeScreenshot(driver, fullPath);
-    }
+//    public static void takeScreenshotWithTimestamp(WebDriver driver, String folderPath, String fileNamePrefix) {
+//        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//        String fullPath = folderPath + File.separator + fileNamePrefix + "_" + timestamp + ".png";
+//        takeScreenshot(driver, fullPath);
+//    }
 
     public static void scrollByPixels(WebDriver driver, int x, int y) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
